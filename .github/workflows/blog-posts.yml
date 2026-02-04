@@ -1,0 +1,68 @@
+name: Latest Blog Posts
+
+on:
+  schedule:
+    - cron: "0 0 * * *"  # Daily at midnight UTC
+  workflow_dispatch:
+
+jobs:
+  update-readme-with-blog:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Fetch RSS and update README
+        run: |
+          # Fetch RSS feed
+          curl -sL --retry 3 --retry-delay 5 \
+            -H "Accept: application/rss+xml" \
+            -o /tmp/rss.xml \
+            "https://blog.rommelporras.com/rss/"
+
+          if [ ! -s /tmp/rss.xml ]; then
+            echo "Failed to fetch RSS feed"
+            exit 1
+          fi
+
+          # Parse RSS and update README
+          pip install -q feedparser
+          python3 << 'PYEOF'
+          import feedparser, re
+
+          feed = feedparser.parse("/tmp/rss.xml")
+          if not feed.entries:
+              print("No posts found")
+              exit(0)
+
+          posts = []
+          for entry in feed.entries[:5]:
+              posts.append(f"- [{entry.title}]({entry.link})")
+          post_list = "\n".join(posts)
+
+          with open("README.md", "r") as f:
+              content = f.read()
+
+          pattern = r"(<!-- BLOG-POST-LIST:START -->).*?(<!-- BLOG-POST-LIST:END -->)"
+          replacement = rf"\1\n{post_list}\n\2"
+          new_content = re.sub(pattern, replacement, content, flags=re.DOTALL)
+
+          if new_content != content:
+              with open("README.md", "w") as f:
+                  f.write(new_content)
+              print(f"README updated with {len(posts)} posts")
+          else:
+              print("No changes needed")
+          PYEOF
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git diff --quiet README.md && echo "No changes to commit" && exit 0
+          git add README.md
+          git commit -m "docs: update latest blog posts"
+          git push
