@@ -64,6 +64,8 @@
 ## ✍️ Latest Blog Posts
 
 <!-- BLOG-POST-LIST:START -->
+- [Gateway API vs Ingress: No Ingress Controller Needed](https://blog.rommelporras.com/gateway-api-vs-ingress/)
+- [Cilium Deep Dive: eBPF-Powered Networking That Replaces kube-proxy](https://blog.rommelporras.com/cilium-ebpf/)
 - [HA Control Plane with kube-vip: No Load Balancer Needed](https://blog.rommelporras.com/kube-vip-ha/)
 - [Why kubeadm Over k3s, RKE2, and Talos in 2026](https://blog.rommelporras.com/why-kubeadm-over-k3s-rke2-talos/)
 <!-- BLOG-POST-LIST:END -->
