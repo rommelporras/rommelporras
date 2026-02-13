@@ -64,10 +64,11 @@
 ## ✍️ Latest Blog Posts
 
 <!-- BLOG-POST-LIST:START -->
+- [The Modern Logging Stack: Loki + Alloy (Why Not Promtail)](https://blog.rommelporras.com/loki-alloy/)
+- [Distributed Storage with Longhorn: 2 Replicas Are Enough](https://blog.rommelporras.com/longhorn-storage/)
 - [Gateway API vs Ingress: No Ingress Controller Needed](https://blog.rommelporras.com/gateway-api-vs-ingress/)
-- [Cilium Deep Dive: eBPF-Powered Networking That Replaces kube-proxy](https://blog.rommelporras.com/cilium-ebpf/)
+- [Cilium Deep Dive: What Replacing kube-proxy Actually Means](https://blog.rommelporras.com/cilium-ebpf/)
 - [HA Control Plane with kube-vip: No Load Balancer Needed](https://blog.rommelporras.com/kube-vip-ha/)
-- [Why kubeadm Over k3s, RKE2, and Talos in 2026](https://blog.rommelporras.com/why-kubeadm-over-k3s-rke2-talos/)
 <!-- BLOG-POST-LIST:END -->
 
 ## 🐍 Contribution Graph
