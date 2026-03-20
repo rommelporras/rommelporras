@@ -64,11 +64,11 @@
 ## ✍️ Latest Blog Posts
 
 <!-- BLOG-POST-LIST:START -->
-- [Alerting That Actually Wakes You Up: Discord, Email, and Dead Man's Switches](https://blog.rommelporras.com/alerting/)
+- [Self-Hosted GitLab: CI/CD Pipelines Without Cloud Vendor Lock-in](https://blog.rommelporras.com/gitlab-cicd/)
+- [Alerting That Actually Wakes You Up: Discord, Email, and Dead Man's Switches](https://blog.rommelporras.com/kubernetes-alerting/)
 - [The Modern Logging Stack: Loki + Alloy (Why Not Promtail)](https://blog.rommelporras.com/loki-alloy/)
 - [Distributed Storage with Longhorn: 2 Replicas Are Enough](https://blog.rommelporras.com/longhorn-storage/)
 - [Gateway API vs Ingress: No Ingress Controller Needed](https://blog.rommelporras.com/gateway-api-vs-ingress/)
-- [Cilium Deep Dive: What Replacing kube-proxy Actually Means](https://blog.rommelporras.com/cilium-ebpf/)
 <!-- BLOG-POST-LIST:END -->
 
 ## 🐍 Contribution Graph
